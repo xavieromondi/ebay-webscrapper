@@ -4,7 +4,7 @@ const cheerio = require("cheerio");
 
 const app = express();
 app.get("/", (req, res) => {
-  res.send("Hello, World!");
+  res.redirect("/ebay");
 });
 
 app.get("/ebay", (req, res) => {
