@@ -3,6 +3,9 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 
 const app = express();
+app.get("/", (req, res) => {
+  res.send("Hello, World!");
+});
 
 app.get("/ebay", (req, res) => {
   const searchKeyword = req.query.q;
