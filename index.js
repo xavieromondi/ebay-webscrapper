@@ -19,7 +19,11 @@ app.get("/ebay", (req, res) => {
 
       $(".s-item").each((i, element) => {
         const name = $(element).find(".s-item__title").text().trim();
-        const imageUrl = $(element).find(".s-item__image-img").attr("src");
+        const imageUrl =
+          $(element).find(".s-item__image-img > img").attr("src") ||
+          $(element).find(".s-item__image-img > img").attr("data-src") ||
+          $(element).find(".s-item__image-wrapper > img").attr("src") ||
+          $(element).find(".s-item__image-wrapper > img").attr("data-src");
         const price = $(element).find(".s-item__price").text().trim();
 
         items.push({ name, imageUrl, price });
