@@ -37,13 +37,11 @@ app.get("/ebay", (req, res) => {
           parseFloat(b.price.replace("$", ""))
       );
 
-      const lowestPriceItems = items.slice(0, 10).map((item) => ({
+      const lowestPriceItems = items.slice(0, 10).map((item, i) => ({
         name: item.name,
         imageUrl: item.imageUrl,
         price: item.price,
-        link: `https://www.ebay.com${$(item)
-          .find(".s-item__link")
-          .attr("href")}`,
+        link: $(".s-item").eq(i).find(".s-item__link").attr("href"),
       }));
 
       console.log(lowestPriceItems); // log the output to the console
@@ -56,4 +54,4 @@ app.get("/ebay", (req, res) => {
     });
 });
 
-app.listen(8080, () => console.log("Server running on port 3000"));
+app.listen(8080, () => console.log("Server running on port 8080"));
