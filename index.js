@@ -1,7 +1,9 @@
 const express = require("express");
 const axios = require("axios");
 const cheerio = require("cheerio");
+const cors = require("cors");
 
+app.use(cors());
 const app = express();
 app.get("/", (req, res) => {
   res.redirect("/ebay");
